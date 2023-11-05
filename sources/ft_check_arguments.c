@@ -6,7 +6,7 @@
 /*   By: tbenz <tbenz@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 10:44:22 by tbenz             #+#    #+#             */
-/*   Updated: 2023/11/05 13:08:55 by tbenz            ###   ########.fr       */
+/*   Updated: 2023/11/05 13:12:41 by tbenz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,9 @@ int	ft_check_nondigit(char *input)
 	i = 0;
 	while (input[i])
 	{
-		if (input[i] < '0'  || input[i] > '9')
+		if (i == 0 && input[i] == '-')
+			i++;
+		else if (input[i] < '0'  || input[i] > '9')
 			return (1);
 		i++;
 	}
