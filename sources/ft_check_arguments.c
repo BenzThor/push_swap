@@ -6,7 +6,7 @@
 /*   By: tbenz <tbenz@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 10:44:22 by tbenz             #+#    #+#             */
-/*   Updated: 2023/11/06 16:36:26 by tbenz            ###   ########.fr       */
+/*   Updated: 2023/11/06 21:02:31 by tbenz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	ft_check_duplicates(int i, t_sort *sort)
 
 	input = sort->in[i];
 	len = ft_strlen(input);
-	j = 0;
+	j = -1;
 	while (++j < i)
 	{
 		if (ft_strlen(input) > ft_strlen(sort->in[j]))
@@ -59,11 +59,10 @@ int	ft_check_nondigit(char *input)
 	i = 0;
 	while (input[i])
 	{
-		if (i == 0 && input[i] == '-')
+		if ((i == 0 && input[0] == '-') || (input[i] >= '0' && input[i] <= '9'))
 			i++;
-		else if (input[i] < '0' || input[i] > '9')
+		else
 			return (1);
-		i++;
 	}
 	return (0);
 }
@@ -72,7 +71,7 @@ void	ft_check_input(t_sort *sort)
 {
 	int	i;
 
-	i = 0;
+	i = -1;
 	while (++i < sort->elem)
 	{
 		if (ft_check_nondigit(sort->in[i]) || ft_check_max_int(sort->in[i])
@@ -91,6 +90,8 @@ void	ft_check_arguments(int argc, char **argv, t_sort *sort)
 	else
 	{
 		ft_prepare_str(argc, argv, sort);
+		if (sort->elem < 2)
+			ft_quit(sort);
 		ft_check_input(sort);
 	}
 }
