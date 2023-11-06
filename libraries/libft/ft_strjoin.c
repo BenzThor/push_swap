@@ -6,7 +6,7 @@
 /*   By: tbenz <tbenz@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 14:59:50 by tbenz             #+#    #+#             */
-/*   Updated: 2023/11/03 14:34:36 by tbenz            ###   ########.fr       */
+/*   Updated: 2023/11/06 16:58:27 by tbenz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,3 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	ft_strlcat(ptr, s2, len);
 	return (ptr);
 }
-/*
-int	main(void)
-{
-	printf("%s", ft_strjoin("Passt ", "das?"));
-} */
