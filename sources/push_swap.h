@@ -6,7 +6,7 @@
 /*   By: tbenz <tbenz@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 10:18:06 by tbenz             #+#    #+#             */
-/*   Updated: 2023/11/07 12:24:46 by tbenz            ###   ########.fr       */
+/*   Updated: 2023/11/07 13:41:22 by tbenz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,23 +72,35 @@ t_stack		*ft_stack_last(t_stack **stack);
 
 /* swap */
 // changes the first two elems of stack a or does nothing if not enough elems
-void	ft_swap_a(t_sort *sort, int print);
+void		ft_swap_a(t_sort *sort, int print);
 // changes the first two elems of stack b or does nothing if not enough elems
-void	ft_swap_b(t_sort *sort, int print);
+void		ft_swap_b(t_sort *sort, int print);
 // see above; swaps first elems of both stacks - stack a and b
-void	ft_swap_both(t_sort *sort);
+void		ft_swap_both(t_sort *sort);
 
 /* push */
 // first element of b is pushed to stack a; if there is no elem, it does nothing
-void	ft_push_a(t_sort *sort);
+void		ft_push_a(t_sort *sort);
 // first element of a is pushed to stack b; if there is no elem, it does nothing
-void	ft_push_b(t_sort *sort);
+void		ft_push_b(t_sort *sort);
 
 /* rotate */
 // first element of a becomes the last, all other elements move one position up
-void	ft_rotate_a(t_sort *sort, int print);
-//
+void		ft_rotate_a(t_sort *sort, int print);
+// first element of b becomes the last, all other elements move one position up
+void		ft_rotate_b(t_sort *sort, int print);
+// rotates both, stack a and b
+void		ft_rotate_both(t_sort *sort);
 
+/* reverse rotate */
+// shifts down all elements of a by 1. The last element becomes the first one
+void		ft_reverse_rotate_a(t_sort *sort, int print);
+// shifts down all elements of b by 1. The last element becomes the first one
+void		ft_reverse_rotate_b(t_sort *sort, int print);
+//	shifts down both stacks by 1. The last element becomes the first one
+void		ft_reverse_rotate_both(t_sort *sort);
+// determines the second last element and returns a pointer to this element
+t_stack		*ft_stack_second_last(t_stack **stack_address, t_stack **last_address);
 
 /* ft_quit */
 // removes allocated memory and closes the program
