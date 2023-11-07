@@ -1,0 +1,33 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   rotate.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tbenz <tbenz@student.42vienna.com>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/07 12:13:29 by tbenz             #+#    #+#             */
+/*   Updated: 2023/11/07 12:23:32 by tbenz            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "push_swap.h"
+
+void	ft_rotate_a(t_sort *sort, int print)
+{
+	t_stack	*temp;
+	t_stack	*last;
+
+	if (sort->stack_a)
+	{
+		if (sort->stack_a->ptr)
+		{
+			temp = sort->stack_a;
+			sort->stack_a = sort->stack_a->ptr;
+			last = ft_stack_last(&sort->stack_a);
+			last->ptr = temp;
+			temp->ptr = NULL;
+		}
+	}
+	if (print == 1)
+		ft_putstr_fd("ra", 1);
+}

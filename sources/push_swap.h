@@ -6,7 +6,7 @@
 /*   By: tbenz <tbenz@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 10:18:06 by tbenz             #+#    #+#             */
-/*   Updated: 2023/11/06 17:52:01 by tbenz            ###   ########.fr       */
+/*   Updated: 2023/11/07 12:24:46 by tbenz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <stdio.h>
 
 # define ERR_MSG	"Error\n"
-# define MALL_ERR	"There was an error while creating the stack(s)"
+# define MALL_ERR	"Error\nThere was an error while creating the stack(s)"
 
 # define INT_MAX	2147483647
 # define INT_MIN	-2147483648
@@ -27,6 +27,7 @@ typedef struct s_stack
 {
 	int				i;
 	struct s_stack	*ptr;
+	int				index;
 }	t_stack;
 
 typedef struct s_sort
@@ -69,13 +70,25 @@ int			ft_create_stack_elem(char *value, t_stack **stack);
 // determines the last element of the stack
 t_stack		*ft_stack_last(t_stack **stack);
 
-/* ft_swap */
+/* swap */
 // changes the first two elems of stack a or does nothing if not enough elems
 void	ft_swap_a(t_sort *sort, int print);
 // changes the first two elems of stack b or does nothing if not enough elems
 void	ft_swap_b(t_sort *sort, int print);
 // see above; swaps first elems of both stacks - stack a and b
 void	ft_swap_both(t_sort *sort);
+
+/* push */
+// first element of b is pushed to stack a; if there is no elem, it does nothing
+void	ft_push_a(t_sort *sort);
+// first element of a is pushed to stack b; if there is no elem, it does nothing
+void	ft_push_b(t_sort *sort);
+
+/* rotate */
+// first element of a becomes the last, all other elements move one position up
+void	ft_rotate_a(t_sort *sort, int print);
+//
+
 
 /* ft_quit */
 // removes allocated memory and closes the program
