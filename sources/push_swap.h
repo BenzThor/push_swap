@@ -6,7 +6,7 @@
 /*   By: tbenz <tbenz@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 10:18:06 by tbenz             #+#    #+#             */
-/*   Updated: 2023/11/07 13:41:22 by tbenz            ###   ########.fr       */
+/*   Updated: 2023/11/07 15:42:18 by tbenz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@
 typedef struct s_stack
 {
 	int				i;
-	struct s_stack	*ptr;
 	int				index;
+	struct s_stack	*ptr;
 }	t_stack;
 
 typedef struct s_sort
@@ -115,5 +115,7 @@ void		ft_clean_stack(t_stack *stack);
 void		ft_init_sort(t_sort *sort);
 // converts a string to a long int
 long int	ft_atoil(const char *nptr);
+// index stack elements from 1 to elem_numbers
+void	ft_index_stack(t_sort *sort)
 
 #endif
