@@ -6,7 +6,7 @@
 /*   By: tbenz <tbenz@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 10:18:06 by tbenz             #+#    #+#             */
-/*   Updated: 2023/11/07 15:42:18 by tbenz            ###   ########.fr       */
+/*   Updated: 2023/11/07 15:46:34 by tbenz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,7 @@ void		ft_reverse_rotate_b(t_sort *sort, int print);
 //	shifts down both stacks by 1. The last element becomes the first one
 void		ft_reverse_rotate_both(t_sort *sort);
 // determines the second last element and returns a pointer to this element
-t_stack		*ft_stack_second_last(t_stack **stack_address, t_stack **last_address);
+t_stack		*ft_stack_second_last(t_stack **st_add, t_stack **last_address);
 
 /* ft_quit */
 // removes allocated memory and closes the program
@@ -116,6 +116,6 @@ void		ft_init_sort(t_sort *sort);
 // converts a string to a long int
 long int	ft_atoil(const char *nptr);
 // index stack elements from 1 to elem_numbers
-void	ft_index_stack(t_sort *sort)
+void		ft_index_stack(t_sort *sort);
 
 #endif

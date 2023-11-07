@@ -6,7 +6,7 @@
 /*   By: tbenz <tbenz@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 16:38:45 by tbenz             #+#    #+#             */
-/*   Updated: 2023/11/06 20:10:30 by tbenz            ###   ########.fr       */
+/*   Updated: 2023/11/07 15:47:34 by tbenz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,10 +61,10 @@ void	ft_str_creation(int argc, char **argv, t_sort *sort)
 	str_compl = NULL;
 	while (++i < argc)
 	{
-			str_compl = ft_strjoin_ps(&str_compl, " ", sort);
-			ft_check_alloc(str_compl, sort);
-			str_compl = ft_strjoin_ps(&str_compl, argv[i], sort);
-			ft_check_alloc(str_compl, sort);
+		str_compl = ft_strjoin_ps(&str_compl, " ", sort);
+		ft_check_alloc(str_compl, sort);
+		str_compl = ft_strjoin_ps(&str_compl, argv[i], sort);
+		ft_check_alloc(str_compl, sort);
 	}
 	sort->in = ft_split(str_compl, ' ');
 	free(str_compl);

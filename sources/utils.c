@@ -6,7 +6,7 @@
 /*   By: tbenz <tbenz@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 11:57:33 by tbenz             #+#    #+#             */
-/*   Updated: 2023/11/07 15:40:28 by tbenz            ###   ########.fr       */
+/*   Updated: 2023/11/07 15:45:45 by tbenz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	ft_index_stack(t_sort *sort)
 {
 	t_stack	*temp;
 	t_stack	*element;
-	int	index;
+	int		index;
 
 	temp = sort->stack_a;
 	element = sort->stack_a;

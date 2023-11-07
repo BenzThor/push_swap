@@ -6,17 +6,17 @@
 /*   By: tbenz <tbenz@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 13:01:37 by tbenz             #+#    #+#             */
-/*   Updated: 2023/11/07 13:44:48 by tbenz            ###   ########.fr       */
+/*   Updated: 2023/11/07 15:46:42 by tbenz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack	*ft_stack_second_last(t_stack **stack_address, t_stack **last_address)
+t_stack	*ft_stack_second_last(t_stack **st_add, t_stack **last_address)
 {
 	t_stack	*stack;
 
-	stack = *stack_address;
+	stack = *st_add;
 	while (stack->ptr && stack->ptr != *last_address)
 		stack = stack->ptr;
 	return (stack);
