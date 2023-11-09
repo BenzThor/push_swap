@@ -6,7 +6,7 @@
 /*   By: tbenz <tbenz@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 10:18:06 by tbenz             #+#    #+#             */
-/*   Updated: 2023/11/09 13:08:44 by tbenz            ###   ########.fr       */
+/*   Updated: 2023/11/09 13:27:14 by tbenz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,9 +113,13 @@ void	ft_sort(t_sort *sort);
 
 /* determine target */
 // determines the target nodes of stack_a elements in stack b
-void	ft_determine_targets_b(t_sort *sort)
+void	ft_determine_targets_b(t_sort *sort);
 // determines for ecach st_a elem which elem in b is the closest smaller elem
-void	ft_determine_closest_b(t_sort *sort, t_stack *elem)
+void	ft_determine_closest_b(t_sort *sort, t_stack *elem);
+// determines the target nodes of stack_b elements in stack a
+void	ft_determine_targets_a(t_sort *sort);
+// determines for ecach st_b elem which elem in a is the closest smaller elem
+void	ft_determine_closest_a(t_sort *sort, t_stack *elem);
 
 /* ft_quit */
 // removes allocated memory and closes the program

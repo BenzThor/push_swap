@@ -6,7 +6,7 @@
 /*   By: tbenz <tbenz@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 15:49:25 by tbenz             #+#    #+#             */
-/*   Updated: 2023/11/09 11:11:06 by tbenz            ###   ########.fr       */
+/*   Updated: 2023/11/09 13:33:06 by tbenz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_mini_sort(t_sort *sort)
 {
-	if ()
+
 }
 
 void	ft_sort(t_sort *sort)
@@ -28,5 +28,5 @@ void	ft_sort(t_sort *sort)
 	}
 	if (sort->elem == 3)
 		ft_mini_sort(sort);
-	ft_sort_alg(sort);
+	// ft_sort_alg(sort);
 }
