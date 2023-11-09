@@ -6,7 +6,7 @@
 /*   By: tbenz <tbenz@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 14:35:20 by tbenz             #+#    #+#             */
-/*   Updated: 2023/11/06 16:33:12 by tbenz            ###   ########.fr       */
+/*   Updated: 2023/11/09 12:09:43 by tbenz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	ft_create_stack(t_sort *sort)
 	i = -1;
 	while (++i < sort->elem)
 	{
-		if (!ft_create_stack_elem(sort->in[i], &(sort->stack_a)))
+		if (!ft_create_stack_elem(sort->in[i], &(sort->st_a)))
 			ft_quit(sort);
 	}
 }

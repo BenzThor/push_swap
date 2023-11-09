@@ -6,7 +6,7 @@
 /*   By: tbenz <tbenz@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 11:57:33 by tbenz             #+#    #+#             */
-/*   Updated: 2023/11/07 15:45:45 by tbenz            ###   ########.fr       */
+/*   Updated: 2023/11/09 12:09:09 by tbenz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,19 +47,71 @@ void	ft_index_stack(t_sort *sort)
 	t_stack	*element;
 	int		index;
 
-	temp = sort->stack_a;
-	element = sort->stack_a;
+	temp = sort->st_a;
+	element = sort->st_a;
 	while (element)
 	{
 		index = 1;
-		while (sort->stack_a)
+		while (sort->st_a)
 		{
-			if (element->i > sort->stack_a->i)
+			if (element->i > sort->st_a->i)
 				index++;
-			sort->stack_a = sort->stack_a->ptr;
+			sort->st_a = sort->st_a->ptr;
 		}
-		element->index = index;
+		element->ind = index;
 		element = element->ptr;
-		sort->stack_a = temp;
+		sort->st_a = temp;
 	}
+}
+
+int	ft_check_order(t_sort *sort)
+{
+	t_stack	*temp;
+	t_stack	*elem;
+
+	temp = sort->st_a;
+	elem = sort->st_a->ptr;
+	while (sort->st_a)
+	{
+		while (elem)
+		{
+			if (sort->st_a->i > elem->i)
+			{
+				sort->st_a = temp;
+				return (0);
+			}
+			elem = elem->ptr;
+		}
+		sort->st_a = sort->st_a->ptr;
+		if (sort->st_a)
+			elem = sort->st_a->ptr;
+	}
+	sort->st_a = temp;
+	return (1);
+}
+
+int	ft_check_reverse_order(t_sort *sort)
+{
+	t_stack	*temp;
+	t_stack	*elem;
+
+	temp = sort->st_a;
+	elem = sort->st_a->ptr;
+	while (sort->st_a)
+	{
+		while (elem)
+		{
+			if (sort->st_a->i < elem->i)
+			{
+				sort->st_a = temp;
+				return (0);
+			}
+			elem = elem->ptr;
+		}
+		sort->st_a = sort->st_a->ptr;
+		if (sort->st_a)
+			elem = sort->st_a->ptr;
+	}
+	sort->st_a = temp;
+	return (1);
 }

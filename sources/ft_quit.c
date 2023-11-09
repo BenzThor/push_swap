@@ -6,7 +6,7 @@
 /*   By: tbenz <tbenz@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 10:49:10 by tbenz             #+#    #+#             */
-/*   Updated: 2023/11/06 16:14:16 by tbenz            ###   ########.fr       */
+/*   Updated: 2023/11/09 12:10:13 by tbenz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,15 +34,14 @@ void	ft_clean_stack(t_stack *stack)
 		free (stack);
 		stack = temp;
 	}
-	ft_putstr_fd(MALL_ERR, 2);
 }
 
 void	ft_quit(t_sort *sort)
 {
-	if (sort->stack_a)
-		ft_clean_stack(sort->stack_a);
-	if (sort->stack_b)
-		ft_clean_stack(sort->stack_b);
+	if (sort->st_a)
+		ft_clean_stack(sort->st_a);
+	if (sort->st_b)
+		ft_clean_stack(sort->st_b);
 	if (sort->in)
 		ft_free_in(sort->in);
 	exit (0);

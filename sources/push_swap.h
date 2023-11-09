@@ -6,7 +6,7 @@
 /*   By: tbenz <tbenz@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 10:18:06 by tbenz             #+#    #+#             */
-/*   Updated: 2023/11/07 16:17:18 by tbenz            ###   ########.fr       */
+/*   Updated: 2023/11/09 13:08:44 by tbenz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,18 @@
 typedef struct s_stack
 {
 	int				i;
-	int				index;
+	int				ind;
+	int				st_ind;
+	int				stack_pos;
+	int				cost;
+	struct s_stack	*trgt;
 	struct s_stack	*ptr;
 }	t_stack;
 
 typedef struct s_sort
 {
-	t_stack	*stack_a;
-	t_stack	*stack_b;
+	t_stack	*st_a;
+	t_stack	*st_b;
 	char	**in;
 	int		elem;
 }	t_sort;
@@ -105,10 +109,13 @@ t_stack		*ft_stack_second_last(t_stack **st_add, t_stack **last_address);
 /* ft_sort */
 // sorts the input
 void	ft_sort(t_sort *sort);
-// checks, whether the input is in order
-int	ft_check_order(t_sort *sort);
-// checks, wheter the input is in reverse order
-int	ft_check_reverse_order(t_sort *sort);
+
+
+/* determine target */
+// determines the target nodes of stack_a elements in stack b
+void	ft_determine_targets_b(t_sort *sort)
+// determines for ecach st_a elem which elem in b is the closest smaller elem
+void	ft_determine_closest_b(t_sort *sort, t_stack *elem)
 
 /* ft_quit */
 // removes allocated memory and closes the program
@@ -125,5 +132,19 @@ void		ft_init_sort(t_sort *sort);
 long int	ft_atoil(const char *nptr);
 // index stack elements from 1 to elem_numbers
 void		ft_index_stack(t_sort *sort);
+// checks, whether the input is in order
+int	ft_check_order(t_sort *sort);
+// checks, wheter the input is in reverse order
+int	ft_check_reverse_order(t_sort *sort);
+
+/* stack utils */
+// determines the number of elements, currently contained in a stack
+int	ft_stack_elements(t_stack *stack);
+// determines the element with the highest index contained in a stack
+t_stack	*ft_stack_highest(t_stack *stack);
+// determines the element with the lowest index contained in a stack
+t_stack	*ft_stack_lowest(t_stack *stack);
+// determines the index of an element in the current stack
+void	ft_stack_ind(t_stack *stack);
 
 #endif

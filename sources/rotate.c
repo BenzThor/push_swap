@@ -6,7 +6,7 @@
 /*   By: tbenz <tbenz@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 12:13:29 by tbenz             #+#    #+#             */
-/*   Updated: 2023/11/07 13:04:48 by tbenz            ###   ########.fr       */
+/*   Updated: 2023/11/09 12:11:36 by tbenz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@ void	ft_rotate_a(t_sort *sort, int print)
 	t_stack	*temp;
 	t_stack	*last;
 
-	if (sort->stack_a)
+	if (sort->st_a)
 	{
-		if (sort->stack_a->ptr)
+		if (sort->st_a->ptr)
 		{
-			temp = sort->stack_a;
-			sort->stack_a = sort->stack_a->ptr;
-			last = ft_stack_last(&sort->stack_a);
+			temp = sort->st_a;
+			sort->st_a = sort->st_a->ptr;
+			last = ft_stack_last(&sort->st_a);
 			last->ptr = temp;
 			temp->ptr = NULL;
 		}
@@ -37,13 +37,13 @@ void	ft_rotate_b(t_sort *sort, int print)
 	t_stack	*temp;
 	t_stack	*last;
 
-	if (sort->stack_b)
+	if (sort->st_b)
 	{
-		if (sort->stack_b->ptr)
+		if (sort->st_b->ptr)
 		{
-			temp = sort->stack_b;
-			sort->stack_b = sort->stack_b->ptr;
-			last = ft_stack_last(&sort->stack_b);
+			temp = sort->st_b;
+			sort->st_b = sort->st_b->ptr;
+			last = ft_stack_last(&sort->st_b);
 			last->ptr = temp;
 			temp->ptr = NULL;
 		}
