@@ -6,7 +6,7 @@
 /*   By: tbenz <tbenz@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 10:18:06 by tbenz             #+#    #+#             */
-/*   Updated: 2023/11/09 13:27:14 by tbenz            ###   ########.fr       */
+/*   Updated: 2023/11/09 17:52:01 by tbenz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ typedef struct s_stack
 	int				st_ind;
 	int				stack_pos;
 	int				cost;
+	int				comb_cost;
 	struct s_stack	*trgt;
 	struct s_stack	*ptr;
 }	t_stack;
@@ -109,6 +110,8 @@ t_stack		*ft_stack_second_last(t_stack **st_add, t_stack **last_address);
 /* ft_sort */
 // sorts the input
 void	ft_sort(t_sort *sort);
+// sorts 3 values in
+void	ft_mini_sort(t_sort *sort);
 
 
 /* determine target */

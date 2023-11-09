@@ -6,7 +6,7 @@
 /*   By: tbenz <tbenz@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 17:53:30 by tbenz             #+#    #+#             */
-/*   Updated: 2023/11/09 12:11:04 by tbenz            ###   ########.fr       */
+/*   Updated: 2023/11/09 16:50:46 by tbenz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	ft_push_a(t_sort *sort)
 		}
 		else
 		{
-			temp->ptr = sort->st_a->ptr;
+			temp->ptr = sort->st_a;
 			sort->st_a = temp;
 		}
 	}
