@@ -6,7 +6,7 @@
 /*   By: tbenz <tbenz@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 15:49:25 by tbenz             #+#    #+#             */
-/*   Updated: 2023/11/09 17:56:07 by tbenz            ###   ########.fr       */
+/*   Updated: 2023/11/09 18:00:08 by tbenz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,15 @@
 
 void	ft_a_to_b(t_sort *sort)
 {
+	int	next_cost;
+
 	ft_stack_elements(sort->st_a);
 	ft_stack_elements(sort->st_b);
 	ft_determine_cost(sort->st_a);
 	ft_determine_cost(sort->st_b);
-	ft_determine_comb_cost(sort);
+	next_cost = ft_determine_comb_cost(sort);
+	ft_push_a_to_b(sort, next_cost);
+
 }
 
 void	ft_mini_sort(t_sort *sort)
