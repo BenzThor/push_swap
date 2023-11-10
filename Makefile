@@ -6,7 +6,7 @@
 #    By: tbenz <tbenz@student.42vienna.com>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/26 15:17:18 by tbenz             #+#    #+#              #
-#    Updated: 2023/11/05 10:32:53 by tbenz            ###   ########.fr        #
+#    Updated: 2023/11/10 18:07:24 by tbenz            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,21 @@ SRCS_DIR		= ./sources/
 BONUS_SRCS_DIR	= ./bonus_sources/
 
 SRCS 			= $(addprefix $(SRCS_DIR),\
-				push_swap.c)
+				push_swap.c \
+				determine_cost.c \
+				determine_target.c \
+				ft_check_arguments.c \
+				ft_create_stack.c \
+				ft_prepare_str.c \
+				ft_quit.c \
+				ft_sort.c \
+				push.c \
+				reverse_rotate.c \
+				rotate.c \
+				sort_utils.c \
+				stack_utils.c \
+				swap.c \
+				utils.c)
 
 
 SRCS_BONUS 		= $(addprefix $(BONUS_SRCS_DIR),\

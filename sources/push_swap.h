@@ -6,7 +6,7 @@
 /*   By: tbenz <tbenz@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 10:18:06 by tbenz             #+#    #+#             */
-/*   Updated: 2023/11/10 12:05:01 by tbenz            ###   ########.fr       */
+/*   Updated: 2023/11/10 17:49:08 by tbenz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,14 +125,18 @@ void		ft_determine_closest_b(t_sort *sort, t_stack *elem);
 void		ft_determine_targets_a(t_sort *sort);
 // determines for ecach st_b elem which elem in a is the closest smaller elem
 void		ft_determine_closest_a(t_sort *sort, t_stack *elem);
+// sets all the elements' target addresses to NULL
+void	ft_targets_init(t_sort *sort);
 
-/* ft_quit */
-// removes allocated memory and closes the program
-void		ft_quit(t_sort *sort);
-// removes all allocated elements from the stack and frees their memory
-void		ft_clean_stack(t_stack *ptr);
-// cleans the stack (frees and removes the stack elements)
-void		ft_clean_stack(t_stack *stack);
+/* determine costs */
+// assigns a cost for each element, depending if above or below midline
+void		ft_determine_cost(t_stack *stack, t_sort *sort);
+// determines cost for both stacks to get element to top
+void		ft_determine_cost_both(t_sort *sort);
+// determines halved costs for getting elems to the top using the same operation
+int			ft_hlvd_costs(t_stack *elem1, t_stack *elem2);
+// determines costs of getting a combination of elements to the top
+int			ft_determine_comb_cost(t_stack *p_st);
 
 /* utils */
 // initites the struct, setting all the values to zero
@@ -146,6 +150,18 @@ int			ft_check_order(t_sort *sort);
 // checks, wheter the input is in reverse order
 int			ft_check_reverse_order(t_sort *sort);
 
+/* sort utils */
+// finds the push element, rotates it and target elem to top and pushes it to a
+void	ft_push_a_to_b(t_sort *sort);
+// finds the push element, rotates it and target elem to top and pushes it to b
+void	ft_push_b_to_a(t_sort *sort);
+// rotates an element to the top, so it can be pushed to the other stack
+void	ft_rotate_elem(t_stack *elem, t_sort *sort, int stack);
+// rotates two elements together (rr and rrr), while this is possible
+void	ft_rotate_together(int rotations, int direction, t_sort *sort);
+// finds the next element with lowest combined costs to push to the other stack
+t_stack	*ft_find_element(t_stack *stack);
+
 /* stack utils */
 // determines the number of elements, currently contained in a stack
 int			ft_stack_elements(t_stack *stack, t_sort *sort);
@@ -156,16 +172,12 @@ t_stack		*ft_stack_highest(t_stack *stack);
 // determines the element with the lowest index contained in a stack
 t_stack		*ft_stack_lowest(t_stack *stack);
 
-/* utils2 */
-// assigns a cost for each element, depending if above or below midline
-void		ft_determine_cost(t_stack *stack, t_sort *sort);
-// determines cost for both stacks to get element to top
-void		ft_determine_cost_both(t_sort *sort);
-// determines the distance to the top position of an elem and assigns it to elem
-int			ft_dist_to_top(t_stack *elem, int elem_num);
-// determines halved costs for getting elems to the top using the same operation
-int			ft_hlvd_costs(t_stack *elem1, t_stack *elem2);
-// determines costs of getting a combination of elements to the top
-int			ft_determine_comb_cost(t_stack *p_st, int pst_elem, int tst_elem);
+/* ft_quit */
+// removes allocated memory and closes the program
+void		ft_quit(t_sort *sort);
+// removes all allocated elements from the stack and frees their memory
+void		ft_clean_stack(t_stack *ptr);
+// cleans the stack (frees and removes the stack elements)
+void		ft_clean_stack(t_stack *stack);
 
 #endif

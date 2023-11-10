@@ -6,7 +6,7 @@
 /*   By: tbenz <tbenz@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 15:49:25 by tbenz             #+#    #+#             */
-/*   Updated: 2023/11/10 12:44:37 by tbenz            ###   ########.fr       */
+/*   Updated: 2023/11/10 18:10:04 by tbenz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,16 @@ void	ft_sort_plus4(t_sort *sort)
 	ft_mini_sort(sort);
 	while (ft_stack_elements(sort->st_b, sort) > 0)
 		ft_push_b_to_a(sort);
+	if (!ft_check_order(sort))
+	{
+		while (!ft_check_order(sort))
+		{
+			if (ft_stack_lowest(sort->st_a)->a_md == 1)
+				ft_rotate_a(sort, 1);
+			else
+				ft_reverse_rotate_a(sort, 1);
+		}
+	}
 }
 
 void	ft_mini_sort(t_sort *sort)
@@ -65,4 +75,5 @@ void	ft_sort(t_sort *sort)
 		ft_mini_sort4(sort);
 	if (sort->elem > 4)
 		ft_sort_plus4(sort);
+	ft_quit(sort);
 }
