@@ -6,12 +6,12 @@
 #    By: tbenz <tbenz@student.42vienna.com>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/26 15:17:18 by tbenz             #+#    #+#              #
-#    Updated: 2023/11/10 18:07:24 by tbenz            ###   ########.fr        #
+#    Updated: 2023/11/10 18:23:24 by tbenz            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME			= push_swap
-NAME_BONUS		= push_swap_bonus
+NAME_BONUS		= checker
 
 GREEN			= \033[0;32m
 RED				= \033[0;31m
