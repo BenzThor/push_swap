@@ -6,7 +6,7 @@
 /*   By: tbenz <tbenz@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 12:26:49 by tbenz             #+#    #+#             */
-/*   Updated: 2023/11/09 13:53:56 by tbenz            ###   ########.fr       */
+/*   Updated: 2023/11/10 11:15:34 by tbenz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	ft_determine_targets_b(t_sort *sort)
 {
 	t_stack	*temp_a;
 
-	temp_a = sort->st_a;;
+	temp_a = sort->st_a;
 	while (sort->st_a)
 	{
 		if (sort->st_a->ind < ft_stack_lowest(sort->st_b)->ind)

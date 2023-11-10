@@ -6,7 +6,7 @@
 /*   By: tbenz <tbenz@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 10:41:38 by tbenz             #+#    #+#             */
-/*   Updated: 2023/11/09 16:53:17 by tbenz            ###   ########.fr       */
+/*   Updated: 2023/11/10 11:47:31 by tbenz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	main(int argc, char **argv)
 	ft_push_b(&sort);
 	ft_push_b(&sort);
 	ft_push_b(&sort); */
-	ft_stack_elements(sort.st_a);
+	ft_stack_elements(sort.st_a, &sort);
 	temp1 = sort.st_a;
 	// ft_determine_targets_b(&sort);
 	ft_sort(&sort);
