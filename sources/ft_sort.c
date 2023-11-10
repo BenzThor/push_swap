@@ -6,7 +6,7 @@
 /*   By: tbenz <tbenz@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 15:49:25 by tbenz             #+#    #+#             */
-/*   Updated: 2023/11/10 12:41:37 by tbenz            ###   ########.fr       */
+/*   Updated: 2023/11/10 12:44:37 by tbenz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 
 void	ft_sort_plus4(t_sort *sort)
 {
-		ft_push_b(sort);
-		ft_push_b(sort);
-		ft_stack_elements(sort->st_b, sort);
-		if (ft_stack_lowest(sort->st_b)->st_pos == 1)
-			ft_swap_b(sort, 1);
-		while (ft_stack_elements(sort->st_a, sort) > 3)
-			ft_push_a_to_b(sort);
-		ft_mini_sort(sort);
-		while (ft_stack_elements(sort->st_b, sort) > 0)
-			ft_push_b_to_a(sort);
+	ft_push_b(sort);
+	ft_push_b(sort);
+	ft_stack_elements(sort->st_b, sort);
+	if (ft_stack_lowest(sort->st_b)->st_pos == 1)
+		ft_swap_b(sort, 1);
+	while (ft_stack_elements(sort->st_a, sort) > 3)
+		ft_push_a_to_b(sort);
+	ft_mini_sort(sort);
+	while (ft_stack_elements(sort->st_b, sort) > 0)
+		ft_push_b_to_a(sort);
 }
 
 void	ft_mini_sort(t_sort *sort)

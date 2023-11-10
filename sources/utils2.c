@@ -6,7 +6,7 @@
 /*   By: tbenz <tbenz@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 17:27:59 by tbenz             #+#    #+#             */
-/*   Updated: 2023/11/10 12:43:41 by tbenz            ###   ########.fr       */
+/*   Updated: 2023/11/10 12:47:04 by tbenz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_push_a_to_b(t_sort *sort)
 	ft_stack_elements_both(sort);
 	ft_determine_cost_both(sort);
 	push_elem = ft_find_element(sort->st_a, sort->elem_a, sort->elem_b);
-	ft_rotate_together(ft_hlvd_costs(push_elem, push_elem->trgt),
+	ft_rotate_together(ft_hlvd_costs(push_elem, push_elem->trgt), \
 						push_elem->a_md, sort);
 	ft_rotate_elem(push_elem, sort, 1);
 	ft_rotate_elem(push_elem->trgt, sort, 2);
@@ -33,10 +33,10 @@ void	ft_push_b_to_a(t_sort *sort)
 	ft_stack_elements_both(sort);
 	ft_determine_cost_both(sort);
 	push_elem = ft_find_element(sort->st_b, sort->elem_b, sort->elem_a);
-	ft_rotate_together(ft_hlvd_costs(push_elem, push_elem->trgt),
+	ft_rotate_together(ft_hlvd_costs(push_elem, push_elem->trgt), \
 						push_elem->a_md, sort);
-	ft_rotate_elem(push_elem, sort, 1);
-	ft_rotate_elem(push_elem->trgt, sort, 2);
+	ft_rotate_elem(push_elem, sort, 2);
+	ft_rotate_elem(push_elem->trgt, sort, 1);
 	ft_push_b(sort);
 }
 
@@ -60,7 +60,7 @@ void	ft_rotate_elem(t_stack *elem, t_sort *sort, int stack)
 	}
 }
 
-void	ft_rotate_together(int	rotations, int direction, t_sort *sort)
+void	ft_rotate_together(int rotations, int direction, t_sort *sort)
 {
 	while (rotations > 0)
 	{
