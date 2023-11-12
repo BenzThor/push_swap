@@ -6,11 +6,11 @@
 /*   By: tbenz <tbenz@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 11:57:33 by tbenz             #+#    #+#             */
-/*   Updated: 2023/11/12 12:12:25 by tbenz            ###   ########.fr       */
+/*   Updated: 2023/11/12 11:32:21 by tbenz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
 void	ft_init_sort(t_sort *sort)
 {
@@ -41,29 +41,6 @@ long int	ft_atoil(const char *nptr)
 	return (sum * sign);
 }
 
-void	ft_index_stack(t_sort *sort)
-{
-	t_stack	*temp;
-	t_stack	*element;
-	int		index;
-
-	temp = sort->st_a;
-	element = sort->st_a;
-	while (element)
-	{
-		index = 1;
-		while (sort->st_a)
-		{
-			if (element->i > sort->st_a->i)
-				index++;
-			sort->st_a = sort->st_a->ptr;
-		}
-		element->ind = index;
-		element = element->ptr;
-		sort->st_a = temp;
-	}
-}
-
 int	ft_check_order(t_sort *sort)
 {
 	t_stack	*temp;
@@ -90,28 +67,10 @@ int	ft_check_order(t_sort *sort)
 	return (1);
 }
 
-int	ft_check_reverse_order(t_sort *sort)
+void	ft_check_order_bonus(t_sort *sort)
 {
-	t_stack	*temp;
-	t_stack	*elem;
-
-	temp = sort->st_a;
-	elem = sort->st_a->ptr;
-	while (sort->st_a)
-	{
-		while (elem)
-		{
-			if (sort->st_a->i < elem->i)
-			{
-				sort->st_a = temp;
-				return (0);
-			}
-			elem = elem->ptr;
-		}
-		sort->st_a = sort->st_a->ptr;
-		if (sort->st_a)
-			elem = sort->st_a->ptr;
-	}
-	sort->st_a = temp;
-	return (1);
+	if (ft_check_order(sort) && sort->st_b == NULL)
+		ft_putstr_fd("OK\n", 1);
+	else
+		ft_putstr_fd("KO\n", 1);
 }

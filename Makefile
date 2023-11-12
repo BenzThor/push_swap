@@ -6,7 +6,7 @@
 #    By: tbenz <tbenz@student.42vienna.com>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/26 15:17:18 by tbenz             #+#    #+#              #
-#    Updated: 2023/11/10 18:23:24 by tbenz            ###   ########.fr        #
+#    Updated: 2023/11/12 11:39:33 by tbenz            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,9 +22,6 @@ LIBFT 			= ./libraries/libft/libft.a
 CC 				= cc
 
 STANDARD_FLAGS 	= -Wall -Werror -Wextra -g
-
-VALGRIND		= @valgrind --leak-check=full --show-leak-kinds=all \
---track-origins=yes --quiet --tool=memcheck --keep-debuginfo=yes
 
 REMOVE 			= rm -f
 
@@ -50,7 +47,17 @@ SRCS 			= $(addprefix $(SRCS_DIR),\
 
 
 SRCS_BONUS 		= $(addprefix $(BONUS_SRCS_DIR),\
-				push_swap_bonus.c)
+				checker.c \
+				ft_check_arguments.c \
+				ft_create_stack.c \
+				ft_operations.c \
+				ft_prepare_str.c \
+				ft_quit.c \
+				push.c \
+				reverse_rotate.c \
+				rotate.c \
+				swap.c \
+				utils.c)
 
 all:			${LIBFT} ${NAME}
 
@@ -84,10 +91,4 @@ re:				fclean all
 
 rebonus:		fclean ${NAME_BONUS}
 
-run:			${NAME}
-					${VALGRIND} ./${NAME} ./map/map1.ber
-
-run_bonus:		${NAME_BONUS}
-					${VALGRIND} ./${NAME_BONUS} ./map/map2.ber
-
-.PHONY:			all clean fclean re rebonus run run_bonus
+.PHONY:			all clean fclean re rebonus

@@ -1,40 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   push_swap_bonus.h                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbenz <tbenz@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 10:18:06 by tbenz             #+#    #+#             */
-/*   Updated: 2023/11/12 12:46:38 by tbenz            ###   ########.fr       */
+/*   Updated: 2023/11/12 12:48:06 by tbenz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#ifndef PUSH_SWAP_BONUS_H
+# define PUSH_SWAP_BONUS_H
 
 /* include libraries */
 # include "../libraries/libft/libft.h"
+# include <stdio.h>
 
+/* error messages */
 # define ERR_MSG	"Error\n"
 # define MALL_ERR	"Error\nThere was an error while creating the stack(s)"
 
+/* max INT & min INT */
 # define INT_MAX	2147483647
 # define INT_MIN	-2147483648
 
+/* stack struct, saving information of single struct elements */
 typedef struct s_stack
 {
 	int				i;
-	int				ind;
-	int				st_pos;
-	int				cost;
-	int				comb_cost;
-	int				a_md;
-	int				d_top;
-	struct s_stack	*trgt;
 	struct s_stack	*ptr;
 }	t_stack;
 
+/* sort struct, storing the two stacks, number of elems and the input */
 typedef struct s_sort
 {
 	t_stack	*st_a;
@@ -77,99 +75,53 @@ int			ft_create_stack_elem(char *value, t_stack **stack);
 // determines the last element of the stack
 t_stack		*ft_stack_last(t_stack **stack);
 
+/* ft_operations */
+// gets the operations from the input stream and checks whether it is valid inp
+void		ft_operations(t_sort *sort);
+// checks the input for validity and if so, executes the commands
+int			ft_exec_operations(char *str, t_sort *sort);
+
 /* swap */
 // changes the first two elems of stack a or does nothing if not enough elems
-void		ft_swap_a(t_sort *sort, int print);
+int			ft_swap_a(t_sort *sort);
 // changes the first two elems of stack b or does nothing if not enough elems
-void		ft_swap_b(t_sort *sort, int print);
+int			ft_swap_b(t_sort *sort);
 // see above; swaps first elems of both stacks - stack a and b
-void		ft_swap_both(t_sort *sort);
+int			ft_swap_both(t_sort *sort);
 
 /* push */
 // first element of b is pushed to stack a; if there is no elem, it does nothing
-void		ft_push_a(t_sort *sort);
+int			ft_push_a(t_sort *sort);
 // first element of a is pushed to stack b; if there is no elem, it does nothing
-void		ft_push_b(t_sort *sort);
+int			ft_push_b(t_sort *sort);
 
 /* rotate */
 // first element of a becomes the last, all other elements move one position up
-void		ft_rotate_a(t_sort *sort, int print);
+int			ft_rotate_a(t_sort *sort);
 // first element of b becomes the last, all other elements move one position up
-void		ft_rotate_b(t_sort *sort, int print);
+int			ft_rotate_b(t_sort *sort);
 // rotates both, stack a and b
-void		ft_rotate_both(t_sort *sort);
+int			ft_rotate_both(t_sort *sort);
 
 /* reverse rotate */
 // shifts down all elements of a by 1. The last element becomes the first one
-void		ft_reverse_rotate_a(t_sort *sort, int print);
+int			ft_reverse_rotate_a(t_sort *sort);
 // shifts down all elements of b by 1. The last element becomes the first one
-void		ft_reverse_rotate_b(t_sort *sort, int print);
+int			ft_reverse_rotate_b(t_sort *sort);
 //	shifts down both stacks by 1. The last element becomes the first one
-void		ft_reverse_rotate_both(t_sort *sort);
+int			ft_reverse_rotate_both(t_sort *sort);
 // determines the second last element and returns a pointer to this element
 t_stack		*ft_stack_second_last(t_stack **st_add, t_stack **last_address);
-
-/* ft_sort */
-// sorts the input
-void		ft_sort(t_sort *sort);
-// sorts 3 values in
-void		ft_mini_sort(t_sort *sort);
-
-/* determine target */
-// determines the target nodes of stack_a elements in stack b
-void		ft_determine_targets_b(t_sort *sort);
-// determines for ecach st_a elem which elem in b is the closest smaller elem
-void		ft_determine_closest_b(t_sort *sort, t_stack *elem);
-// determines the target nodes of stack_b elements in stack a
-void		ft_determine_targets_a(t_sort *sort);
-// determines for ecach st_b elem which elem in a is the closest smaller elem
-void		ft_determine_closest_a(t_sort *sort, t_stack *elem);
-// sets all the elements' target addresses to NULL
-void		ft_targets_init(t_sort *sort);
-
-/* determine costs */
-// assigns a cost for each element, depending if above or below midline
-void		ft_determine_cost(t_stack *stack, t_sort *sort);
-// determines cost for both stacks to get element to top
-void		ft_determine_cost_both(t_sort *sort);
-// determines halved costs for getting elems to the top using the same operation
-int			ft_hlvd_costs(t_stack *elem1, t_stack *elem2);
-// determines costs of getting a combination of elements to the top
-int			ft_determine_comb_cost(t_stack *p_st);
 
 /* utils */
 // initites the struct, setting all the values to zero
 void		ft_init_sort(t_sort *sort);
 // converts a string to a long int
 long int	ft_atoil(const char *nptr);
-// index stack elements from 1 to elem_numbers
-void		ft_index_stack(t_sort *sort);
 // checks, whether the input is in order
 int			ft_check_order(t_sort *sort);
-// checks, wheter the input is in reverse order
-int			ft_check_reverse_order(t_sort *sort);
-
-/* sort utils */
-// finds the push element, rotates it and target elem to top and pushes it to a
-void		ft_push_a_to_b(t_sort *sort);
-// finds the push element, rotates it and target elem to top and pushes it to b
-void		ft_push_b_to_a(t_sort *sort);
-// rotates an element to the top, so it can be pushed to the other stack
-void		ft_rotate_elem(t_stack *elem, t_sort *sort, int stack);
-// rotates two elements together (rr and rrr), while this is possible
-void		ft_rotate_together(int rotations, int direction, t_sort *sort);
-// finds the next element with lowest combined costs to push to the other stack
-t_stack		*ft_find_element(t_stack *stack);
-
-/* stack utils */
-// determines the number of elements, currently contained in a stack
-int			ft_stack_elements(t_stack *stack, t_sort *sort);
-// assigns positional value to all elements in both stacks
-void		ft_stack_elements_both(t_sort *sort);
-// determines the element with the highest index contained in a stack
-t_stack		*ft_stack_highest(t_stack *stack);
-// determines the element with the lowest index contained in a stack
-t_stack		*ft_stack_lowest(t_stack *stack);
+// checks the order and if st b is empty and if so returns "OK" otherwise "KO"
+void		ft_check_order_bonus(t_sort *sort);
 
 /* ft_quit */
 // removes allocated memory and closes the program

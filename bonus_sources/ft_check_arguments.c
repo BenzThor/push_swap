@@ -6,11 +6,11 @@
 /*   By: tbenz <tbenz@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 10:44:22 by tbenz             #+#    #+#             */
-/*   Updated: 2023/11/12 12:01:39 by tbenz            ###   ########.fr       */
+/*   Updated: 2023/11/12 11:59:51 by tbenz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
 int	ft_check_duplicates(int i, t_sort *sort)
 {
@@ -77,10 +77,7 @@ void	ft_check_input(t_sort *sort)
 	{
 		if (ft_check_nondigit(sort->in[i]) || ft_check_max_int(sort->in[i])
 			|| ft_check_duplicates(i, sort))
-		{
-			ft_putstr_fd(ERR_MSG, 2);
 			ft_quit(sort);
-		}
 	}
 }
 
