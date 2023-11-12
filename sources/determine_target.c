@@ -6,7 +6,7 @@
 /*   By: tbenz <tbenz@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 12:26:49 by tbenz             #+#    #+#             */
-/*   Updated: 2023/11/10 15:45:15 by tbenz            ###   ########.fr       */
+/*   Updated: 2023/11/12 15:42:14 by tbenz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,14 +99,12 @@ void	ft_targets_init(t_sort *sort)
 	temp_b = sort->st_b;
 	while (temp_a)
 	{
-		if (temp_a->trgt)
-			temp_a->trgt = NULL;
+		temp_a->trgt = NULL;
 		temp_a = temp_a->ptr;
 	}
 	while (temp_b)
 	{
-		if (temp_b->trgt)
-			temp_b->trgt = NULL;
+		temp_b->trgt = NULL;
 		temp_b = temp_b->ptr;
 	}
 }
