@@ -6,7 +6,7 @@
 /*   By: tbenz <tbenz@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 10:53:25 by tbenz             #+#    #+#             */
-/*   Updated: 2023/11/12 12:50:58 by tbenz            ###   ########.fr       */
+/*   Updated: 2023/11/12 12:57:44 by tbenz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	ft_operations(t_sort *sort)
 			ft_quit(sort);
 		str = get_next_line(0);
 		if (!str)
-			break;
+			break ;
 		operations = ft_exec_operations(str, sort);
 	}
 }
