@@ -24,7 +24,7 @@
 	<span> · </span>
 	<a href="#-bonus---a-checker">🎁 Bonus - A Checker</a>
   <span> · </span>
-	<a href="#-checer-instructions">📋 Checker Instructions</a>
+	<a href="#-checker-instructions">📋 Checker Instructions</a>
   <span> · </span>
 	<a href="#-using-the-checker">🚀 Using the Checker</a>
 </h3>
