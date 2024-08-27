@@ -49,7 +49,7 @@ The primary objectives of the push_swap project are:
 1. **Clone the Repository:**
 
    ```bash
-   git clone https://github.com/benzThor/push_swa.git
+   git clone https://github.com/BenzThor/push_swa.git
    cd push_swa
    ```
 
