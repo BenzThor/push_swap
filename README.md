@@ -1,0 +1,254 @@
+<h1 align="center">
+  🧮 Push_swap
+</h1>
+
+<p align="center">
+	<img alt="GitHub code size in bytes" src="https://img.shields.io/github/languages/code-size/benzThor/push_swap?color=red" />
+	<img alt="Code language count" src="https://img.shields.io/github/languages/count/benzThor/push_swap?color=yellow" />
+	<img alt="GitHub top language" src="https://img.shields.io/github/languages/top/benzThor/push_swap?color=blue" />
+	<img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/benzThor/push_swap?color=green" />
+</p>
+
+<h3 align="center">
+	<a href="#-project-overview">📝 Project Overview</a>
+	<span> · </span>
+	<a href="#-objectives">🎯 Objectives</a>
+  <span> · </span>
+	<a href="#️-installation">🛠️ Installation</a>
+	<span> · </span>
+	<a href="#-usage">🚀 Usage</a>
+	<span> · </span>
+	<a href="#-counting-operations">📊 Counting Operations</a>
+	<span> · </span>
+	<a href="#-testing">🧪 Testing</a>
+	<span> · </span>
+	<a href="#-bonus---a-checker">🎁 Bonus - A Checker</a>
+  <span> · </span>
+	<a href="#-checer-instructions">📋 Checker Instructions</a>
+  <span> · </span>
+	<a href="#-using-the-checker">🚀 Using the Checker</a>
+</h3>
+
+## 📝 Project Overview
+
+Push_swap is a 42 project that challenges you to sort a stack of integers using a limited set of operations and a second auxiliary stack.
+The goal is to implement an efficient algorithm to sort the stack with the minimum number of operations. 
+In this implementation, the sorting is achieved using a custom sorting algorithm inspired by the Turk Sort, where the next move is determined based on the calculated cost of potential moves.
+
+## 🎯 Objectives
+
+The primary objectives of the push_swap project are:
+
+  - To develop an understanding of stack data structures and sorting algorithms.
+  - To implement a sorting algorithm that efficiently organizes data within the constraints of minimal operations.
+  - To calculate the cost of each possible move dynamically and select the move with the lowest cost to optimize the sorting process.
+  - To manage edge cases and optimize the algorithm to handle larger sets of data within reasonable time and space complexity.
+
+## 🛠️ Installation
+
+1. **Clone the Repository:**
+
+   ```bash
+   git clone https://github.com/benzThor/push_swa.git
+   cd push_swa
+   ```
+
+2. **Compile the project:**
+
+   The project includes a Makefile that handles the compilation process for both the server and client programs. To compile the project, simply run:
+
+   ```bash
+   make
+   ```
+
+   This command will generate the server and client executables in the project directory.
+
+   - To clean up the compiled files, you can use:
+     ```bash
+     make clean
+     ```
+    - To remove all compiled and object files, use:
+      ```bash
+      make fclean
+      ```
+    - To recompile the project from scratch, use:
+      ```bash
+      make re
+      ```
+
+## 🚀 Usage
+
+Once compiled, the push_swap program can be used to sort a stack of integers. 
+The program accepts a list of integers as arguments and outputs a series of operations to sort the stack.
+
+**Example Usage**
+
+```bash
+./push_swap 4 67 3 87 23
+```
+
+This command will print the series of operations required to sort the stack [4, 67, 3, 87, 23].
+
+**Operations**
+
+The program will output one or more of the following operations to the standard output:
+
+  - sa (swap a): Swap the first two elements at the top of stack A.
+  - sb (swap b): Swap the first two elements at the top of stack B.
+  - ss: sa and sb at the same time.
+  - pa (push a): Take the first element at the top of B and put it at the top of A.
+  - pb (push b): Take the first element at the top of A and put it at the top of B.
+  - ra (rotate a): Shift all elements of stack A up by 1.
+  - rb (rotate b): Shift all elements of stack B up by 1.
+  - rr: ra and rb at the same time.
+  - rra (reverse rotate a): Shift all elements of stack A down by 1.
+  - rrb (reverse rotate b): Shift all elements of stack B down by 1.
+  - rrr: rra and rrb at the same time.
+
+**How the Algorithm Works**
+
+The Turk Sort algorithm used in this implementation works by calculating the "cost" of each possible move and selecting the move that results in the lowest cost. 
+The cost is determined based on several factors, including:
+
+  - Positioning: How far an element needs to move in the stack.
+  - Stack Balancing: Ensuring that both stacks are balanced to minimize unnecessary operations.
+  - Optimization: Prioritizing moves that lead to a more ordered stack.
+
+The algorithm continues selecting and performing the lowest-cost move until the stack is fully sorted.
+
+## 📊 Counting Operations
+
+To determine the number of operations used by your push_swap implementation, you can pipe the output of the push_swap program into the wc -l command. 
+This counts the number of lines (operations) outputted by push_swap.
+
+**Usage Example:**
+
+```bash
+./push_swap 3 2 1 0 | wc -l
+```
+
+This command will output the number of lines generated by push_swap, each representing an operation performed.
+
+
+## 🧪 Testing
+
+To test the push_swap program:
+
+  1. Run the program with different sets of integers to see the sequence of operations.
+  2. Verify that the outputted operations correctly sort the stack (use the tester provided with the bonus part).
+
+## 🎁 Bonus - A checker
+
+As part of the bonus feature for the push_swap project, a custom checker program had to be developed. 
+This tool verifies the correctness of the sorting operations by executing a sequence of operations on a stack and ensuring that the stack is correctly sorted.
+
+## Objective
+
+The custom checker ensures that the push_swap implementation adheres to the expected functionality by validating that the sorting operations are performed correctly and that errors are handled gracefully. 
+It provides a robust way to test and verify the correctness of your sorting algorithm.
+
+## 📋 Checker Instructions
+
+The checker program operates as follows:
+
+  1. **Program Input:**
+    
+     The checker takes the initial stack as a command-line argument.
+     The stack is formatted as a list of integers, with the first argument representing the top of the stack.
+
+     ```bash
+     ./checker [initial_stack]
+     ```
+
+     **Example:**
+
+     ```bash
+     ./checker 3 2 1 0
+     ```
+
+  2. **Operation Input:**
+
+     After providing the stack, the program waits for a series of instructions to be entered via standard input.
+     Each instruction should be followed by a newline character (\n). The recognized operations include:
+
+       - sa (swap a)
+       - sb (swap b)
+       - ss (swap both a and b)
+       - pa (push a)
+       - pb (push b)
+       - ra (rotate a)
+       - rb (rotate b)
+       - rr (rotate both a and b)
+       - rra (reverse rotate a)
+       - rrb (reverse rotate b)
+       - rrr (reverse rotate both a and b)
+    
+  3. **Execution and Output:**
+
+     After executing the provided instructions on the stack:
+
+       - **If the stack a is sorted and stack b is empty, the program displays:**
+
+         ```bash
+         OK
+         ```
+         
+       - **If the stacks do not meet these conditions, it displays:**
+         
+         ```bash
+         KO
+         ```
+         
+       - **For invalid inputs**, such as non-integer arguments, duplicates, unknown instructions, or incorrect formatting, the program displays an error message on the standard error:
+         
+         ```bash
+         Error
+         ```
+
+         - Error Example
+        
+           ```bash
+           ./checker 3 2 one 0
+           ```
+
+           Output:
+
+           ```bash
+           Error
+           ```
+
+## 🚀 Using the Checker
+
+1. **Compile the Checker:**
+  
+   Ensure that the checker program is compiled along with push_swap. If you haven't done so already, run:
+  
+   ```bash
+   make
+   ```
+
+2. **Run the Checker:**
+
+   To check the correctness of a sequence of operations, execute the checker with the initial stack and provide the instructions through standard input:
+
+   ```bash
+   ./checker [initial_stack]
+   ```
+
+   Example:
+
+   ```bash
+   ./checker 3 2 1 0
+   ```
+
+   After running the program, input the sequence of operations followed by pressing Enter:
+
+   ```plaintext
+   rra
+   pb
+   sa
+   rra
+   pa
+   ```
+
+   The checker will process these operations and output either OK or KO, or Error if there are issues with the input or operations.
